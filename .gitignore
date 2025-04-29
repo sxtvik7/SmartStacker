@@ -1,0 +1,24 @@
+# README.md
+
+# Build outputs
+out
+dist
+*.vsix
+
+# Dependencies
+node_modules
+
+# VS Code test environmentgkt 
+.vscode-test/
+
+# Local workspace settings
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
