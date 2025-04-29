@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import {askOllama} from "../services/aiService";
+import askOllama from "../services/aiService";
 
 function openAIWebview(errMessage: string){
     const panel = vscode.window.createWebviewPanel(

@@ -7,7 +7,7 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 import openWebViewPanel from "./views/stackView";
 import getErrorMessage from "./utils/getError";
 import searchStackflow, { getTopAnswer } from "./services/stackService";
-import { getFinalAIResponse } from "./services/aiService";
+import askOllama from "./services/aiService";
 
 
 /*
@@ -46,9 +46,9 @@ export function activate(context: vscode.ExtensionContext) {
 						ONLY provide direct and clear answers without "thinking" or "analyzing" out loud.
 						Write short, helpful, developer-friendly responses.
 						Always stay professional and precise.`;
-						// const aiAnswer = await askOllama(aiPrompt);
+						const aiAnswer = await askOllama(aiPrompt);
 
-						const aiAnswer = await getFinalAIResponse(aiPrompt);
+						// const aiAnswer = await getFinalAIResponse(aiPrompt);
 
 						panel.webview.postMessage({type: 'aiAnswer', content: aiAnswer});
 					}
