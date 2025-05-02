@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import askOllama from "../services/aiService";
+import { askOpenRouter } from "../services/aiService";
 
 function openAIWebview(errMessage: string){
     const panel = vscode.window.createWebviewPanel(
@@ -21,12 +21,12 @@ function openAIWebview(errMessage: string){
             if(message.type === "ask") {
                 const userInput = message.question;
 
-                const fullPrompt = `Error: ${errMessage}\n\nUser follow-u: ${userInput}`;
+                const fullPrompt = `Error: ${errMessage}\n\nUser follow-up: ${userInput}`;
 
-                const aiResponse = await askOllama(fullPrompt);
+                const aiResponse = await askOpenRouter(fullPrompt);
 
                 panel.webview.postMessage({
-                    type: "response",
+                    type: "answer",
                     answer: aiResponse,
                 });
             }
