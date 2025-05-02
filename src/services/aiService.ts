@@ -3,7 +3,7 @@ import path from "path";
 import * as dotenv from 'dotenv';
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-export async function askOpenRouter(ollamaResponse: string) : Promise<string> {
+export async function askOpenRouter(prompt: string) : Promise<string> {
     try {
         const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
         const response = await axios.post("https://openrouter.ai/api/v1/chat/completions", 
@@ -16,7 +16,7 @@ export async function askOpenRouter(ollamaResponse: string) : Promise<string> {
                     },
                     {
                         role: "user",
-                        content: ollamaResponse,
+                        content: prompt,
                     },
                 ],
             }, 
